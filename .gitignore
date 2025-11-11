@@ -1,0 +1,75 @@
+# ===========================
+# 🧠 GLOBAL SETTINGS
+# ===========================
+# System & IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# ===========================
+# 🐍 BACKEND (Python / Pipenv)
+# ===========================
+backend/__pycache__/
+backend/.env
+backend/feeds.csv
+backend/.pytest_cache/
+backend/.mypy_cache/
+backend/.ruff_cache/
+backend/.coverage
+backend/venv/
+backend/.venv/
+backend/env/
+backend/.env.*
+backend/.ipynb_checkpoints/
+
+# Pipenv & requirements
+backend/Pipfile.lock
+backend/requirements.txt
+
+# If you use models or temp outputs
+backend/models/
+backend/tmp/
+backend/output/
+backend/logs/
+backend/checkpoints/
+
+# ===========================
+# ⚛️ FRONTEND (React + Vite)
+# ===========================
+frontend/node_modules/
+frontend/.env
+frontend/.env.*
+frontend/.vite/
+frontend/dist/
+frontend/build/
+frontend/.eslintcache
+frontend/.parcel-cache/
+frontend/.turbo/
+frontend/.cache/
+
+# ===========================
+# 📦 COMMON PROJECT SETTINGS
+# ===========================
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Backup or temporary files
+*.bak
+*.tmp
+*.swp
+*.swo
+
+# OS junk
+ehthumbs.db
+Icon?
+Desktop.ini

@@ -1,12 +1,28 @@
-export default function Header({ lastUpdate }) {
+import { Clock, RefreshCw } from "lucide-react";
+
+export default function Header({ onRefresh }) {
   return (
-    <div className="bg-white border-b border-gray-200 px-8 py-4">
-      <div className="flex justify-between items-center">
-        <h2 className="text-xl font-semibold text-gray-900">Monitoring Daya Listrik</h2>
-        <div className="text-sm text-gray-500">
-          Update terakhir: {lastUpdate ? new Date(lastUpdate).toLocaleString('id-ID') : '-'}
+    <header className="bg-white border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
+        {/* Title ringkas */}
+        <h2 className="text-base font-semibold text-gray-800 tracking-tight">
+          Monitoring Energi Real-time
+        </h2>
+
+        {/* Actions */}
+        <div className="flex items-center space-x-3">
+          {/* Tombol refresh */}
+          {onRefresh && (
+            <button
+              onClick={onRefresh}
+              className="p-2 rounded-md border border-gray-200 hover:bg-gray-100 transition-colors"
+              title="Refresh Data"
+            >
+              <RefreshCw size={16} className="text-gray-700" />
+            </button>
+          )}
         </div>
       </div>
-    </div>
+    </header>
   );
 }

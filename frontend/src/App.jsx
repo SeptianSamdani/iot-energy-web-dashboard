@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Dashboard } from "./pages/Dashboard";
 import { Analytics } from "./pages/Analytics";
 import { CostEstimate } from "./pages/CostEstimate";
-import Sidebar from "./components/layout/Sidebar";
+import Navbar from "./components/layout/Navbar";
 import Header from "./components/layout/Header";
 
 export default function App() {
@@ -14,15 +14,25 @@ export default function App() {
     return () => clearInterval(interval);
   }, []);
 
+  const handleRefresh = () => {
+    setLastUpdate(new Date());
+    window.location.reload();
+  };
+
   return (
-    <div className="flex bg-gray-50">
-      <Sidebar activeTab={activeTab} setActiveTab={setActiveTab} />
-      <div className="flex-1">
-        <Header lastUpdate={lastUpdate} />
+    <div className="min-h-screen bg-[#fafafa] text-gray-900 font-inter antialiased">
+      {/* Navbar Horizontal */}
+      <Navbar activeTab={activeTab} setActiveTab={setActiveTab} />
+      
+      {/* Header with Info */}
+      <Header lastUpdate={lastUpdate} onRefresh={handleRefresh} />
+      
+      {/* Main Content */}
+      <main>
         {activeTab === 'dashboard' && <Dashboard />}
         {activeTab === 'analytics' && <Analytics />}
         {activeTab === 'cost' && <CostEstimate />}
-      </div>
+      </main>
     </div>
   );
 }
